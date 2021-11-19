@@ -9,8 +9,7 @@ class ModelWhereAbstract {
     public function __construct(EnumOutputField $enumOutputField) {
         switch ($enumOutputField->getType()) {
             case EnumOutputField::TYPE_STRING:
-                # code...
-                break;
+                return new ModelWhereString($enumOutputField);
             default:
                 throw new Exception('Invalid output type');
         }
