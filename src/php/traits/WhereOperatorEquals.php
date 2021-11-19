@@ -2,7 +2,7 @@
 
 namespace Traits;
 
-trait TraitName
+trait TraitOperatorEquals
 {
     protected function equals($mixValue)
     {
