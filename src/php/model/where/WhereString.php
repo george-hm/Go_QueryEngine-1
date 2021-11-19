@@ -20,4 +20,25 @@ class ModelWhereString extends ModelWhereAbstract
             'name' => $enumOutputField->getId(),
         ];
     }
+
+    public function in(array $arrValues)
+    {
+        for ($i=0; $i < $arrValues; $i++) {
+            $mixCurrentValue = $arrValues[$i];
+            if (!is_string($mixCurrentValue)) {
+                throw new Exception('Invalid for \'in\' operator');
+            }
+        }
+        $this->_arrWhere['in'] = $arrValues;
+    }
+
+    public function like(string $strValue)
+    {
+        $this->_arrWhere['like'] = $strValue;
+    }
+
+    public function regexp(string $strRegexp)
+    {
+        $this->_arrWhere['regexp'] = $strRegexp;
+    }
 }
