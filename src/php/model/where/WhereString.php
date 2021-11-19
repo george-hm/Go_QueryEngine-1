@@ -28,15 +28,19 @@ class ModelWhereString extends ModelWhereAbstract
 
             $this->_arrWhere['in'] = $arrValues;
         }
+
+        return $this;
     }
 
     public function like(string $strValue)
     {
         $this->_arrWhere['like'] = $strValue;
+        return $this;
     }
 
     public function regexp(string $strRegexp)
     {
         $this->_arrWhere['regexp'] = $strRegexp;
+        return $this;
     }
 }
