@@ -93,7 +93,7 @@ class ServiceAthena
 
         $arrWhereMapped = [];
         foreach ($this->_arrWhere as $mdlCurrentWhere) {
-            $arrWhereMapped[] = $mdlCurrentWhere->toJSON();
+            $arrWhereMapped[] = $mdlCurrentWhere->toArray();
         }
 
         $arrBody = [
