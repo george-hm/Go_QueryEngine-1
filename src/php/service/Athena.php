@@ -47,7 +47,7 @@ class ServiceAthena
 
     public function addWhere(ModelWhereAbstract $modelWhereAbstract)
     {
-        $this->_arrwhere[] = $modelWhereAbstract;
+        $this->_arrWhere[] = $modelWhereAbstract;
         return $this;
     }
 

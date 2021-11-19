@@ -17,8 +17,8 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
         $enumType = new EnumOutputType(EnumOutputType::OUTPUT_COUNT);
         $modelOutput = ModelOutputAbstract::create($enumType);
         $enumField = new EnumOutputField(EnumOutputField::OUTPUT_HOSTNAME);
-        $modelWhere = new ModelWhereAbstract($enumField);
-        $modelWhere->equals('foo');
+        $modelWhere = ModelWhereAbstract::create($enumField);
+        $modelWhere->like('foo')->equals('foo');
 
         $serviceAthena = ServiceAthena::getInstance(self::$strBaseURL);
         $serviceAthena->setToken(self::$strToken)
