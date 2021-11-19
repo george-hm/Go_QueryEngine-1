@@ -31,6 +31,7 @@ define('APPLICATION_PATH',   realpath("src/php"));
 define('TEST_PATH',          realpath("test"));
 
 require_once './test/functional/Functional_TestCase.php';
+require_once './test/php/TestCase.php';
 require_once './vendor/autoload.php';
 
 Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
