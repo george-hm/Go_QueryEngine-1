@@ -11,6 +11,7 @@ class ModelOutputAbstractTest extends \TestCase
     public function testCreateNoMapping()
     {
         $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Invalid output type');
 
         $mockEnumOutputType = Mockery::mock(EnumOutputType::class)
             ->shouldReceive('getId')
