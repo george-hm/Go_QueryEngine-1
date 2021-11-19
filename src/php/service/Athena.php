@@ -81,7 +81,7 @@ class ServiceAthena
         if (empty($this->_modelOutputAbstract)) {
             throw new Exception('Output type cannot be empty');
         }
-        if (count($this->_arrwhere) === 0) {
+        if (count($this->_arrWhere) === 0) {
             throw new Exception('Where cannot be empty');
         }
         // get guzzle connection

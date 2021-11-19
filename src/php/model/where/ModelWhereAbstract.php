@@ -20,6 +20,6 @@ class ModelWhereAbstract {
     }
 
     public final function toJSON() {
-        return json_encode($this->_arrwhere);
+        return json_encode($this->_arrWhere);
     }
 }

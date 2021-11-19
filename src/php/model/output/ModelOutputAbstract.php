@@ -7,6 +7,9 @@ use Exception;
 
 abstract class ModelOutputAbstract
 {
+    public function __construct(EnumOutputType $enumOutputType) {
+        $this->_enumOutputType = $enumOutputType;
+    }
 
     public static function create(EnumOutputType $enumOutputType) {
         switch ($enumOutputType->getId()) {
