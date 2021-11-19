@@ -19,7 +19,7 @@ class ModelWhereAbstract {
         }
     }
 
-    public final function toJSON() {
-        return json_encode($this->_arrWhere);
+    public final function toArray() {
+        return $this->_arrWhere;
     }
 }
