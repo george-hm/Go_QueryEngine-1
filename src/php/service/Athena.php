@@ -11,7 +11,7 @@ class ServiceAthena
     const c_strURL_Athena = '/prodcloud/athena_query';
     private static $_instance;
     private static $_guzzleConnection;
-    private $_arrwhere = [];
+    private $_arrWhere = [];
     private $_bInternal = false;
     private $_bUnique = false;
     private $_strCBURL = '';
@@ -86,8 +86,7 @@ class ServiceAthena
         );
 
         $arrWhereMapped = [];
-        for ($i=0; $i < $this->_arrWhere; $i++) {
-            $mdlCurrentWhere = $this->_arrWhere[$i];
+        foreach ($this->_arrWhere as $mdlCurrentWhere) {
             $arrWhereMapped[] = $mdlCurrentWhere->toJSON();
         }
 

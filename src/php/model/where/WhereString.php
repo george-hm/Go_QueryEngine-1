@@ -21,13 +21,13 @@ class ModelWhereString extends ModelWhereAbstract
 
     public function in(array $arrValues)
     {
-        for ($i=0; $i < $arrValues; $i++) {
-            $mixCurrentValue = $arrValues[$i];
+        foreach ($arrValues as $mixCurrentValue) {
             if (!is_string($mixCurrentValue)) {
                 throw new Exception('Invalid for \'in\' operator');
             }
+
+            $this->_arrWhere['in'] = $arrValues;
         }
-        $this->_arrWhere['in'] = $arrValues;
     }
 
     public function like(string $strValue)
