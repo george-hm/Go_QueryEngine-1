@@ -12,7 +12,7 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
     private static $strBaseURL = 'http://localhost/canddi/';
     private static $strToken = '12345';
 
-    public static function testLookup()
+    public function testLookup()
     {
         $enumType = new EnumOutputType(EnumOutputType::OUTPUT_COUNT);
         $modelOutput = ModelOutputAbstract::create($enumType);
