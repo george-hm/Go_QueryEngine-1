@@ -8,9 +8,13 @@ use GoQueryEngine\Model\Where\ModelWhereAbstract;
 
 class ServiceAthena
 {
+    const c_strURL_Athena = '/prodcloud/athena_query';
     private static $_instance;
     private static $_guzzleConnection;
     private $_arrwhere = array();
+    private $_bInternal = false;
+    private $_bUnique = false;
+    private $_strCBURL = '';
 
     public function __construct(string $strBaseURL) {
         if (empty($strBaseURL)) {
