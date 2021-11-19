@@ -9,7 +9,7 @@ use GoQueryEngine\Model\Where\ModelWhereAbstract;
 
 class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
 {
-    private static $strBaseURL = 'http://localhost/canddi/';
+    private static $strBaseURL = 'http://www.example.com/';
     private static $strToken = '12345';
 
     public function testLookup()
@@ -18,7 +18,7 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
         $modelOutput = ModelOutputAbstract::create($enumType);
         $enumField = new EnumOutputField(EnumOutputField::OUTPUT_HOSTNAME);
         $modelWhere = ModelWhereAbstract::create($enumField);
-        $modelWhere->like('foo')->equals('foo');
+        $modelWhere->like('foo')->equals('bar');
 
         $serviceAthena = ServiceAthena::getInstance(self::$strBaseURL);
         $serviceAthena->setToken(self::$strToken)
@@ -26,6 +26,7 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
             ->addWhere($modelWhere)
             ->setBInternal(true)
             ->setBUnique(true)
+            ->setCallbackURL('https://www.example.com?id=123')
             ->lookup();
     }
 }
