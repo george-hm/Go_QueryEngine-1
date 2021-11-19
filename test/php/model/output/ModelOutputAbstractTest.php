@@ -6,7 +6,7 @@ use Exception;
 use GoQueryEngine\Enum\EnumOutputType;
 use Mockery;
 
-class ModelOutputAbstractTest extends \PHPUnit_Framework_TestCase
+class ModelOutputAbstractTest extends \TestCase
 {
     public function testCreateNoMapping()
     {

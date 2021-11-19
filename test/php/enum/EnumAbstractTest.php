@@ -2,8 +2,6 @@
 
 namespace GoQueryEngine\Enum;
 
-use TestCase;
-
 class StubEnum extends EnumAbstract
 {
     const VALUE_A = "Value A";
@@ -16,7 +14,7 @@ class StubEmptyEnum extends EnumAbstract
     const VALUES = [];
 }
 
-class EnumAbstractTest extends TestCase
+class EnumAbstractTest extends \TestCase
 {
     function testGetAllowedValues()
     {

@@ -5,7 +5,7 @@ namespace GoQueryEngine\Model\Output;
 use GoQueryEngine\Enum\EnumOutputType;
 use GoQueryEngine\Model\Output\ModelOutputAbstract;
 
-class OutputCountTest extends \PHPUnit_Framework_TestCase
+class OutputCountTest extends \TestCase
 {
     public function testCreateMapping()
     {

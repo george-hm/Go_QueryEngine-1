@@ -2,9 +2,7 @@
 
 namespace GoQueryEngine\Enum;
 
-use TestCase;
-
-class OutputFieldTest extends TestCase
+class OutputFieldTest extends \TestCase
 {
 
     function testGetAllowedValues()
