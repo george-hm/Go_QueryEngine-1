@@ -1,6 +1,6 @@
 <?php
 
-namespace Traits;
+namespace GoQueryEngine\Traits;
 
 trait TraitOperatorEquals
 {

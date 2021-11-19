@@ -1,9 +1,9 @@
 <?php
 
-namespace Model\Where;
+namespace GoQueryEngine\Model\Where;
 
-use Enum\EnumOutputField;
-use Traits\TraitOperatorEquals;
+use GoQueryEngine\Enum\EnumOutputField;
+use GoQueryEngine\Traits\TraitOperatorEquals;
 use Exception;
 
 class ModelWhereString extends ModelWhereAbstract

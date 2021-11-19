@@ -1,8 +1,8 @@
 <?php
 
-namespace Model\Output;
+namespace GoQueryEngine\Model\Output;
 
-use Enum\EnumOutputType;
+use GoQueryEngine\Enum\EnumOutputType;
 use Exception;
 
 abstract class ModelOutputAbstract

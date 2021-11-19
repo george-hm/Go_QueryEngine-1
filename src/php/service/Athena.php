@@ -1,10 +1,10 @@
 <?php
 
-namespace Service;
+namespace GoQueryEngine\Service;
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
-use Model\Output\ModelOutputAbstract;
-use Model\Where\ModelWhereAbstract;
+use GoQueryEngine\Model\Output\ModelOutputAbstract;
+use GoQueryEngine\Model\Where\ModelWhereAbstract;
 
 class ServiceAthena
 {

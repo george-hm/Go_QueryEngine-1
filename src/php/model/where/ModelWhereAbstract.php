@@ -1,8 +1,8 @@
 <?php
 
-namespace Model\Where;
+namespace GoQueryEngine\Model\Where;
 
-use Enum\EnumOutputField;
+use GoQueryEngine\Enum\EnumOutputField;
 use Exception;
 
 class ModelWhereAbstract {
