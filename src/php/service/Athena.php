@@ -36,31 +36,37 @@ class ServiceAthena
     public function setToken(string $strToken)
     {
         $this->_strToken = $strToken;
+        return $this;
     }
 
     public function setOutput(ModelOutputAbstract $modelOutputAbstract)
     {
         $this->_modelOutputAbstract = $modelOutputAbstract;
+        return $this;
     }
 
     public function addWhere(ModelWhereAbstract $modelWhereAbstract)
     {
         $this->_arrwhere[] = $modelWhereAbstract;
+        return $this;
     }
 
     public function setBInternal(bool $bInternal)
     {
         $this->_bInternal = $bInternal;
+        return $this;
     }
 
     public function setBUnique(bool $bUnique)
     {
         $this->_bUnique = $bUnique;
+        return $this;
     }
 
     public function setCallbackURL(string $strCBURL)
     {
         $this->_strCBURL = $strCBURL;
+        return $this;
     }
 
     public function lookup()
