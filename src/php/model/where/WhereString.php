@@ -16,9 +16,7 @@ class ModelWhereString extends ModelWhereAbstract
             throw new Exception('Invalid output type');
         }
         $this->_enumOutputField = $enumOutputField;
-        $this->_arrWhere = [
-            'name' => $enumOutputField->getId(),
-        ];
+        $this->_arrWhere['name'] = $enumOutputField->getId();
     }
 
     public function in(array $arrValues)
