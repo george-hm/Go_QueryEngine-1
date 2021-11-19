@@ -58,6 +58,11 @@ class ServiceAthena
         $this->_bUnique = $bUnique;
     }
 
+    public function setCallbackURL(string $strCBURL)
+    {
+        $this->_strCBURL = $strCBURL;
+    }
+
     public function lookup()
     {
         // validate token, baseurl, wheres, outputtype
