@@ -16,7 +16,7 @@ class ServiceAthena
     private $_bUnique = false;
     private $_strCBURL = '';
 
-    public function __construct(string $strBaseURL) {
+    private function __construct(string $strBaseURL) {
         if (empty($strBaseURL)) {
             throw new Exception('Base URL cannot be empty');
         }
