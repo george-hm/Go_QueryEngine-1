@@ -9,7 +9,8 @@ class ModelWhereAbstract {
 
     protected $_arrWhere = [];
 
-    public function __construct(EnumOutputField $enumOutputField) {
+    public static function create(EnumOutputField $enumOutputField)
+    {
         switch ($enumOutputField->getType()) {
             case EnumOutputField::TYPE_STRING:
                 return new ModelWhereString($enumOutputField);
