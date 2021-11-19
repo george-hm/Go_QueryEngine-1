@@ -66,9 +66,47 @@ class ServiceAthena
     public function lookup()
     {
         // validate token, baseurl, wheres, outputtype
+        if (empty($this->_strBaseURL)) {
+            throw new Exception('Base URL cannot be empty');
+        }
+        if (empty($this->_strToken)) {
+            throw new Exception('Token cannot be empty');
+        }
+        if (empty($this->_modelOutputAbstract)) {
+            throw new Exception('Output type cannot be empty');
+        }
+        if (count($this->_arrwhere) === 0) {
+            throw new Exception('Where cannot be empty');
+        }
         // get guzzle connection
-        // send request
-        // end
+
+        $guzzleConnection = $this->_getGuzzle(
+            $this->_strBaseURL,
+            $this->_strToken
+        );
+
+        $arrWhereMapped = [];
+        for ($i=0; $i < $this->_arrWhere; $i++) {
+            $mdlCurrentWhere = $this->_arrWhere[$i];
+            $arrWhereMapped[] = $mdlCurrentWhere->toJSON();
+        }
+
+        $arrBody = [
+            'type' => $this->_modelOutputAbstract->getType(),
+            'where' => $arrWhereMapped,
+            'use_internal' => $this->_bInternal,
+            'unique_companies' => $this->_bUnique,
+            'callback_url' => $this->_strCBURL,
+            'json' => true,
+        ];
+
+        $guzzleConnection->request(
+            'POST',
+            self::c_strURL_Athena,
+            [
+                'json' => $arrBody,
+            ]
+        );
     }
 
     /**
