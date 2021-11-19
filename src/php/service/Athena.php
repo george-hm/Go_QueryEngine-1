@@ -85,6 +85,7 @@ class ServiceAthena
     }
 
     protected static function _getGuzzle($strBaseUri, $strAccessToken)
+    : GuzzleClient
     {
         if (!self::$_guzzleConnection) {
             $arrDefaults                = [
