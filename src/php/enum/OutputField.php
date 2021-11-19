@@ -8,7 +8,7 @@ class EnumOutputField extends EnumAbstract
 
     const OUTPUT_HOSTNAME = 'hostname';
 
-    const FIELDS = [
+    const VALUES = [
         self::OUTPUT_HOSTNAME
     ];
 
