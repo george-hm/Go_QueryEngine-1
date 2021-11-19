@@ -5,8 +5,8 @@ namespace GoQueryEngine\Model\Where;
 use GoQueryEngine\Enum\EnumOutputField;
 use Exception;
 
-class ModelWhereAbstract {
-
+class ModelWhereAbstract
+{
     protected $_arrWhere = [];
 
     public static function create(EnumOutputField $enumOutputField)
@@ -19,7 +19,8 @@ class ModelWhereAbstract {
         }
     }
 
-    public final function toArray() {
+    public final function toArray()
+    {
         return $this->_arrWhere;
     }
 }

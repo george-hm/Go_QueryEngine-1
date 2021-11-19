@@ -16,7 +16,8 @@ class ServiceAthena
     private $_bUnique = false;
     private $_strCBURL = '';
 
-    private function __construct(string $strBaseURL) {
+    private function __construct(string $strBaseURL)
+    {
         if (empty($strBaseURL)) {
             throw new Exception('Base URL cannot be empty');
         }
@@ -123,7 +124,8 @@ class ServiceAthena
      **/
     public static function injectGuzzle(
         GuzzleClient $guzzleConnection
-    ) {
+    )
+    {
         self::$_guzzleConnection    = $guzzleConnection;
     }
 

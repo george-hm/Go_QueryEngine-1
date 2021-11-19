@@ -7,11 +7,13 @@ use Exception;
 
 abstract class ModelOutputAbstract
 {
-    public function __construct(EnumOutputType $enumOutputType) {
+    public function __construct(EnumOutputType $enumOutputType)
+    {
         $this->_enumOutputType = $enumOutputType;
     }
 
-    public static function create(EnumOutputType $enumOutputType) {
+    public static function create(EnumOutputType $enumOutputType)
+    {
         switch ($enumOutputType->getId()) {
             case EnumOutputType::OUTPUT_COUNT:
                 return new ModelOutputCount($enumOutputType);
@@ -20,7 +22,8 @@ abstract class ModelOutputAbstract
         }
     }
 
-    public function getType() {
+    public function getType()
+    {
         return $this->_enumOutputType->getId();
     }
 }
