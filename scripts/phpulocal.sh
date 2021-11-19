@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vendor/phpunit/phpunit/phpunit --stderr --verbose --colors  $1
+vendor/phpunit/phpunit/phpunit --stderr --verbose --colors --bootstrap ./test/localbootstrap.php  $1
