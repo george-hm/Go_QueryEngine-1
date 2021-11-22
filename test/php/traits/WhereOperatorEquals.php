@@ -12,7 +12,6 @@ class WhereOperatorEqualsTest extends \TestCase
         $strTestValue = 'testingValue';
 
         $modelTestOperator->equals($strTestValue);
-        $modelTestOperator->equals($strTestValue);
 
         $this->assertEquals(
             $strTestValue,
