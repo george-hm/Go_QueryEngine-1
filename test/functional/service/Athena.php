@@ -2,6 +2,7 @@
 
 namespace GoQueryEngine\Service;
 
+use GoQueryEngine\Enum\EnumEmployeeRange;
 use GoQueryEngine\Enum\EnumOutputField;
 use GoQueryEngine\Enum\EnumOutputType;
 use GoQueryEngine\Model\Output\ModelOutputAbstract;
@@ -16,14 +17,24 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
     {
         $enumType = new EnumOutputType(EnumOutputType::OUTPUT_COUNT);
         $modelOutput = ModelOutputAbstract::create($enumType);
-        $enumField = new EnumOutputField(EnumOutputField::OUTPUT_HOSTNAME);
-        $modelWhere = ModelWhereAbstract::create($enumField);
-        $modelWhere->like('foo')->equals('bar');
+        $enumField = new EnumOutputField(EnumOutputField::OUTPUT_EMPLOYEE_RANGE);
+        $modelWhereEmployeeRange = ModelWhereAbstract::create($enumField)
+            ->in([
+                new EnumEmployeeRange(EnumEmployeeRange::RANGE_1),
+                new EnumEmployeeRange(EnumEmployeeRange::RANGE_1001_5000)
+            ])->notIn([
+                new EnumEmployeeRange(EnumEmployeeRange::RANGE_11_50)
+            ]);
+
+        $modelWhereHostname = ModelWhereAbstract::create(new EnumOutputField(EnumOutputField::OUTPUT_HOSTNAME))
+            ->equals('www.example.com')
+            ->regexp('/^www\.example\.com$/');
 
         $serviceAthena = ServiceAthena::getInstance(self::$strBaseURL);
         $serviceAthena->setToken(self::$strToken)
             ->setOutput($modelOutput)
-            ->addWhere($modelWhere)
+            ->addWhere($modelWhereEmployeeRange)
+            ->addWhere($modelWhereHostname)
             ->setBInternal(true)
             ->setBUnique(true)
             ->setCallbackURL('https://www.example.com?id=123')
