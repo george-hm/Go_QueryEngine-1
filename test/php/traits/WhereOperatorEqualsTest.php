@@ -4,6 +4,11 @@ namespace GoQueryEngine\Traits;
 
 use Exception;
 
+class Test_WhereOperatorEquals
+{
+    use TraitOperatorEquals;
+}
+
 class WhereOperatorEqualsTest extends \TestCase
 {
     function testEquals()
@@ -18,9 +23,4 @@ class WhereOperatorEqualsTest extends \TestCase
             $modelTestOperator->_arrWhere['equals']
         );
     }
-}
-
-class Test_WhereOperatorEquals
-{
-    use TraitOperatorEquals;
 }
