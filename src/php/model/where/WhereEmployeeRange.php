@@ -15,7 +15,8 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
                 throw new Exception('Invalid value type');
             }
 
-            $this->_arrWhere[EnumOperators::VALUE_IN][] = $enumEmployeeRange->getId();
+            $this->_arrWhere[EnumOperators::VALUE_IN][] =
+                $enumEmployeeRange->getId();
         }
 
         return $this;
@@ -28,7 +29,8 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
                 throw new Exception('Invalid value type');
             }
 
-            $this->_arrWhere[EnumOperators::VALUE_NOT_IN][] = $enumEmployeeRange->getId();
+            $this->_arrWhere[EnumOperators::VALUE_NOT_IN][] =
+                $enumEmployeeRange->getId();
         }
 
         return $this;
