@@ -31,5 +31,8 @@
     "grunt-phpcs": "git+https://github.com/Deep-Web-Technologies/grunt-phpcs.git",
     "grunt-phpunit-runner": "^0.1.9",
     "matchdep": "^2.0.0"
+  },
+  "dependencies": {
+    "coffeescript": "^2.6.1"
   }
 }
