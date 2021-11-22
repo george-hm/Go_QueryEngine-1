@@ -19,7 +19,7 @@ class ModelWhereAbstract
         }
     }
 
-    public final function toArray()
+    public function toArray()
     {
         return $this->_arrWhere;
     }
