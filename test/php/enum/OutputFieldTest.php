@@ -9,7 +9,8 @@ class OutputFieldTest extends \TestCase
     {
         $this->assertEquals(
             [
-                EnumOutputField::OUTPUT_HOSTNAME
+                EnumOutputField::OUTPUT_HOSTNAME,
+                EnumOutputField::OUTPUT_EMPLOYEE_RANGE
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -20,6 +21,10 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'hostname',
             EnumOutputField::OUTPUT_HOSTNAME
+        );
+        $this->assertEquals(
+            'noemployeerange',
+            EnumOutputField::OUTPUT_EMPLOYEE_RANGE
         );
     }
 }
