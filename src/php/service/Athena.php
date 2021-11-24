@@ -31,7 +31,20 @@ class ServiceAthena
             return self::$_instance;
         }
 
-        return new ServiceAthena($strBaseURL);
+        self::$_instance = new ServiceAthena($strBaseURL);
+        return self::$_instance;
+    }
+
+    public static function inject(
+        $instance
+    )
+    {
+        self::$_instance = $instance;
+    }
+
+    public static function reset()
+    {
+        self::$_instance = null;
     }
 
     public function setToken(string $strToken)
