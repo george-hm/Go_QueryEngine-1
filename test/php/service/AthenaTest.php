@@ -8,6 +8,26 @@ use GoQueryEngine\Model\Where\ModelWhereString;
 
 class ServiceAthenaTest extends \TestCase
 {
+
+    protected function _postTearDown()
+    {
+        ServiceAthena::reset();
+    }
+
+    public function testInject()
+    {
+        $strFakeInstance = 'fakeinstance';
+
+        ServiceAthena::inject($strFakeInstance);
+
+        $this->assertEquals(
+            $strFakeInstance,
+            ServiceAthena::getInstance('baseurl')
+        );
+
+        ServiceAthena::reset();
+    }
+
     function testGetInstance()
     {
         $strBaseURL = 'http://localhost:8080';
