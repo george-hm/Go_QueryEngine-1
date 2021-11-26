@@ -21,6 +21,8 @@ class ModelWhereAbstract
                 return new ModelWhereString($enumOutputField);
             case EnumOutputField::OUTPUT_EMPLOYEE_RANGE:
                 return new ModelWhereEmployeeRange($enumOutputField);
+            case EnumOutputField::OUTPUT_LOCATION:
+                return new ModelWhereLocation($enumOutputField);
             default:
                 throw new Exception('Invalid output type');
         }

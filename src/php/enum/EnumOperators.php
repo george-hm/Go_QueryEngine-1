@@ -9,6 +9,11 @@ class EnumOperators extends EnumAbstract
     const VALUE_NOT_IN = 'not_in';
     const VALUE_LIKE = 'like';
     const VALUE_REGEXP = 'regexp';
+    const VALUE_WITHIN = 'within';
+    const VALUE_WITHIN_RADIUS = 'raidus';
+    const VALUE_WITHIN_LAT = 'lat';
+    const VALUE_WITHIN_LNG = 'lng';
+
 
     const VALUES = [
         self::VALUE_EQUALS,
@@ -16,5 +21,9 @@ class EnumOperators extends EnumAbstract
         self::VALUE_NOT_IN,
         self::VALUE_LIKE,
         self::VALUE_REGEXP,
+        self::VALUE_WITHIN,
+        self::VALUE_WITHIN_RADIUS,
+        self::VALUE_WITHIN_LAT,
+        self::VALUE_WITHIN_LNG
     ];
 }
