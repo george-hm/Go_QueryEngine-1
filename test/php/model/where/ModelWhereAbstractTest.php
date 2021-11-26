@@ -12,7 +12,7 @@ class ModelWhereAbstractTest extends \TestCase
         $this->expectExceptionMessage('Invalid output type');
 
         $mockEnumOutputField = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
+            ->shouldReceive('getId')
             ->andReturn('invalidType')
             ->mock();
 
