@@ -7,10 +7,10 @@ use GoQueryEngine\Enum\EnumOperators;
 
 class ModelWhereLocation extends ModelWhereAbstract
 {
-    public function setRadius(int $intRadius)
+    public function setRadius(float $floatRadius)
     {
         $this->_arrWhere[EnumOperators::VALUE_WITHIN]
-            [EnumOperators::VALUE_WITHIN_RADIUS] = $intRadius;
+            [EnumOperators::VALUE_WITHIN_RADIUS] = $floatRadius;
 
         return $this;
     }

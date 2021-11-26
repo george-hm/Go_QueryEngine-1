@@ -10,7 +10,7 @@ class EnumOperators extends EnumAbstract
     const VALUE_LIKE = 'like';
     const VALUE_REGEXP = 'regexp';
     const VALUE_WITHIN = 'within';
-    const VALUE_WITHIN_RADIUS = 'raidus';
+    const VALUE_WITHIN_RADIUS = 'radius';
     const VALUE_WITHIN_LAT = 'lat';
     const VALUE_WITHIN_LNG = 'lng';
 
