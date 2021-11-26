@@ -16,10 +16,10 @@ class ModelWhereAbstract
 
     public static function create(EnumOutputField $enumOutputField)
     {
-        switch ($enumOutputField->getType()) {
-            case EnumOutputField::TYPE_STRING:
+        switch ($enumOutputField->getId()) {
+            case EnumOutputField::OUTPUT_HOSTNAME:
                 return new ModelWhereString($enumOutputField);
-            case EnumOutputField::TYPE_EMPLOYEE_RANGE:
+            case EnumOutputField::OUTPUT_EMPLOYEE_RANGE:
                 return new ModelWhereEmployeeRange($enumOutputField);
             default:
                 throw new Exception('Invalid output type');
