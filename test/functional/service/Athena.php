@@ -15,8 +15,18 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
 
     public function testLookup()
     {
-        $enumType = new EnumOutputType(EnumOutputType::OUTPUT_COUNT);
-        $modelOutput = ModelOutputAbstract::create($enumType);
+        $enumType = new EnumOutputType(EnumOutputType::OUTPUT_PIVOT);
+        $modelOutput = ModelOutputAbstract::create(
+            $enumType,
+            [
+                EnumOutputType::OUTPUT_SETTING_COLUMN => new EnumOutputField(
+                    EnumOutputField::OUTPUT_EMPLOYEE_RANGE
+                ),
+                EnumOutputType::OUTPUT_SETTING_ROW => new EnumOutputField(
+                    EnumOutputField::OUTPUT_HOSTNAME
+                )
+            ]
+        );
         $enumField = new EnumOutputField(EnumOutputField::OUTPUT_EMPLOYEE_RANGE);
         $modelWhereEmployeeRange = ModelWhereAbstract::create($enumField)
             ->in([
