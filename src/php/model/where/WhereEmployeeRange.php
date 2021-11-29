@@ -35,4 +35,18 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
 
         return $this;
     }
+
+    public function toArray()
+    {
+        if (
+            !$this->_arrWhere[EnumOperators::VALUE_IN] &&
+            !$this->_arrWhere[EnumOperators::VALUE_NOT_IN]
+        ) {
+            throw new Exception(
+                "EmployeeRange must have at least 'in' or notIn called"
+            );
+        }
+
+        return $this->_arrWhere;
+    }
 }
