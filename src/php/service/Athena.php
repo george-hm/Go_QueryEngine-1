@@ -2,6 +2,7 @@
 
 namespace GoQueryEngine\Service;
 use Exception;
+use GoQueryEngine\Enum\EnumOutputType;
 use GuzzleHttp\Client as GuzzleClient;
 use GoQueryEngine\Model\Output\ModelOutputAbstract;
 use GoQueryEngine\Model\Where\ModelWhereAbstract;
@@ -118,6 +119,14 @@ class ServiceAthena
             'callback_url' => $this->_strCBURL,
             'json' => true,
         ];
+
+        if (
+            $this->_modelOutputAbstract->getType() ===
+                EnumOutputType::OUTPUT_PIVOT
+        ) {
+            $arrBody['row'] = $this->_modelOutputAbstract->getRow();
+            $arrBody['column'] = $this->_modelOutputAbstract->getColumn();
+        }
 
         $guzzleConnection->request(
             'POST',
