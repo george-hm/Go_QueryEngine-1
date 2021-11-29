@@ -9,10 +9,8 @@ class WhereStringTest extends \TestCase
     function testMapping()
     {
         $mockEnumWhereString = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('string')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_HOSTNAME)
             ->mock();
 
         $modelWhereString = ModelWhereAbstract::create($mockEnumWhereString);
@@ -22,10 +20,8 @@ class WhereStringTest extends \TestCase
 
     function testIn()
     {
-        $strTestingId = 'testingId';
+        $strTestingId = EnumOutputField::OUTPUT_HOSTNAME;
         $mockEnumWhereString = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('string')
             ->shouldReceive('getId')
             ->andReturn($strTestingId)
             ->mock();
@@ -45,10 +41,8 @@ class WhereStringTest extends \TestCase
     }
     function testLike()
     {
-        $strTestingId = 'testingId';
+        $strTestingId = EnumOutputField::OUTPUT_HOSTNAME;
         $mockEnumWhereString = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('string')
             ->shouldReceive('getId')
             ->andReturn($strTestingId)
             ->mock();
@@ -66,10 +60,8 @@ class WhereStringTest extends \TestCase
 
     function testRegexp()
     {
-        $strTestingId = 'testingId';
+        $strTestingId = EnumOutputField::OUTPUT_HOSTNAME;
         $mockEnumWhereString = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('string')
             ->shouldReceive('getId')
             ->andReturn($strTestingId)
             ->mock();

@@ -43,7 +43,7 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
             !$this->_arrWhere[EnumOperators::VALUE_NOT_IN]
         ) {
             throw new Exception(
-                "EmployeeRange must have at least 'in' or notIn called"
+                "EmployeeRange must have at least 'in' or 'notIn' called"
             );
         }
 
