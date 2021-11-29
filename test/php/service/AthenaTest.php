@@ -81,7 +81,7 @@ class ServiceAthenaTest extends \TestCase
         $strOutputType = 'count';
         $mockModelOutputAbstract = \Mockery::mock(ModelOutputCount::class)
             ->shouldReceive('getType')
-            ->once()
+            ->twice()
             ->andReturn($strOutputType)
             ->mock();
 
