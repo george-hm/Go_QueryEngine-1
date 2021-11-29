@@ -2,6 +2,8 @@
 
 namespace GoQueryEngine\Model\Output;
 
+use GoQueryEngine\Enum\EnumOutputType;
+
 class ModelOutputPivot extends ModelOutputAbstract
 {
     public function __construct($enumOutputType, $arrOutput)
@@ -10,7 +12,10 @@ class ModelOutputPivot extends ModelOutputAbstract
             throw new \Exception('OutputPivot requires an output array');
         }
 
-        if (!$arrOutput['OutputRow'] || !$arrOutput['OutputColumn']) {
+        if (
+            !$arrOutput[EnumOutputType::OUTPUT_SETTING_ROW] ||
+            !$arrOutput[EnumOutputType::OUTPUT_SETTING_COLUMN]
+        ) {
             throw new \Exception('OutputPivot requires a row and column');
         }
 
