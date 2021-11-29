@@ -8,19 +8,17 @@ class ModelOutputPivot extends ModelOutputAbstract
 {
     public function __construct($enumOutputType, $arrOutput)
     {
-        if (!count($arrOutput)) {
-            throw new \Exception('OutputPivot requires an output array');
-        }
-
         if (
-            !$arrOutput[EnumOutputType::OUTPUT_SETTING_ROW] ||
-            !$arrOutput[EnumOutputType::OUTPUT_SETTING_COLUMN]
+            !isset($arrOutput[EnumOutputType::OUTPUT_SETTING_ROW]) ||
+            !isset($arrOutput[EnumOutputType::OUTPUT_SETTING_COLUMN])
         ) {
             throw new \Exception('OutputPivot requires a row and column');
         }
 
-        $this->_enumOutputType = $enumOutputType;
-        $this->_arrOutput = $arrOutput;
+        parent::__construct(
+            $enumOutputType,
+            $arrOutput
+        );
     }
 
     public function getRow()
