@@ -10,10 +10,8 @@ class WhereEmployeeRangeTest extends \TestCase
     function testMapping()
     {
         $mockEnumOutputEmployeeRange = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('employee_range')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
         $modelWhereEmployeeRange = ModelWhereAbstract::create(
@@ -29,10 +27,8 @@ class WhereEmployeeRangeTest extends \TestCase
     function testIn()
     {
         $mockEnumOutputEmployeeRange = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('employee_range')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
         $modelWhereEmployeeRange = ModelWhereAbstract::create(
@@ -60,10 +56,8 @@ class WhereEmployeeRangeTest extends \TestCase
         $this->expectExceptionMessage('Invalid value type');
 
         $mockEnumOutputEmployeeRange = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('employee_range')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
         $modelWhereEmployeeRange = ModelWhereAbstract::create(
@@ -78,10 +72,8 @@ class WhereEmployeeRangeTest extends \TestCase
     function testNotIn()
     {
         $mockEnumOutputEmployeeRange = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('employee_range')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
         $modelWhereEmployeeRange = ModelWhereAbstract::create(
@@ -109,10 +101,8 @@ class WhereEmployeeRangeTest extends \TestCase
         $this->expectExceptionMessage('Invalid value type');
 
         $mockEnumOutputEmployeeRange = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getType')
-            ->andReturn('employee_range')
             ->shouldReceive('getId')
-            ->andReturn('testingId')
+            ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
         $modelWhereEmployeeRange = ModelWhereAbstract::create(

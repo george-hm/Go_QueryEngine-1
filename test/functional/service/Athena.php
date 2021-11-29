@@ -26,6 +26,11 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
                 new EnumEmployeeRange(EnumEmployeeRange::RANGE_11_50)
             ]);
 
+        $modelWhereLocation = ModelWhereAbstract::create(new EnumOutputField(EnumOutputField::OUTPUT_LOCATION))
+            ->setLat(1.23)
+            ->setLng(4.56)
+            ->setRadius(10);
+
         $modelWhereHostname = ModelWhereAbstract::create(new EnumOutputField(EnumOutputField::OUTPUT_HOSTNAME))
             ->equals('www.example.com')
             ->regexp('/^www\.example\.com$/');
@@ -35,6 +40,7 @@ class FunctionalTest_Athena extends \GoQueryEngine\Functional_TestCase
             ->setOutput($modelOutput)
             ->addWhere($modelWhereEmployeeRange)
             ->addWhere($modelWhereHostname)
+            ->addWhere($modelWhereLocation)
             ->setBInternal(true)
             ->setBUnique(true)
             ->setCallbackURL('https://www.example.com?id=123')
