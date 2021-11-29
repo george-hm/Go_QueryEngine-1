@@ -23,11 +23,13 @@ class ModelOutputPivot extends ModelOutputAbstract
 
     public function getRow()
     {
-        return $this->_arrOutput['OutputRow'];
+        return $this->_arrOptions
+            [EnumOutputType::OUTPUT_SETTING_ROW]->getId();
     }
 
     public function getColumn()
     {
-        return $this->_arrOutput['OutputColumn'];
+        return $this->_arrOptions
+            [EnumOutputType::OUTPUT_SETTING_COLUMN]->getId();
     }
 }
