@@ -7,8 +7,10 @@ use Exception;
 
 abstract class ModelOutputAbstract
 {
-    public function __construct(EnumOutputType $enumOutputType)
+    public function __construct(EnumOutputType $enumOutputType, array $arrOptions = [])
     {
+        $this->_enumOutputType = $enumOutputType;
+        $this->_arrOptions = $arrOptions;
         $this->_enumOutputType = $enumOutputType;
     }
 
