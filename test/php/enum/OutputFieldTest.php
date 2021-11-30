@@ -11,7 +11,9 @@ class OutputFieldTest extends \TestCase
             [
                 EnumOutputField::OUTPUT_HOSTNAME,
                 EnumOutputField::OUTPUT_EMPLOYEE_RANGE,
-                EnumOutputfield::OUTPUT_LOCATION
+                EnumOutputfield::OUTPUT_LOCATION,
+                EnumOutputField::OUTPUT_TRADING_POSTCODE,
+                EnumOutputField::OUTPUT_REGISTERED_POSTCODE
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -30,6 +32,14 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'location',
             EnumOutputField::OUTPUT_LOCATION
+        );
+        $this->assertEquals(
+            'tradingpostcode',
+            EnumOutputField::OUTPUT_TRADING_POSTCODE
+        );
+        $this->assertEquals(
+            'regofficepostcode',
+            EnumOutputField::OUTPUT_REGISTERED_POSTCODE
         );
     }
 }

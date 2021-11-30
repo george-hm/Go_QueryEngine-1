@@ -8,12 +8,31 @@ class WhereStringTest extends \TestCase
 {
     function testMapping()
     {
-        $mockEnumWhereString = \Mockery::mock(EnumOutputField::class)
+        $mockEnumWhereHostname = \Mockery::mock(EnumOutputField::class)
             ->shouldReceive('getId')
             ->andReturn(EnumOutputField::OUTPUT_HOSTNAME)
             ->mock();
 
-        $modelWhereString = ModelWhereAbstract::create($mockEnumWhereString);
+        $modelWhereString = ModelWhereAbstract::create($mockEnumWhereHostname);
+
+        $this->assertInstanceOf(ModelWhereString::class, $modelWhereString);
+
+        $mockEnumTradingPostcode = \Mockery::mock(EnumOutputField::class)
+            ->shouldReceive('getId')
+            ->andReturn(EnumOutputField::OUTPUT_TRADING_POSTCODE)
+            ->mock();
+
+        $modelWhereString = ModelWhereAbstract::create($mockEnumTradingPostcode);
+
+        $this->assertInstanceOf(ModelWhereString::class, $modelWhereString);
+
+
+        $mockEnumRegisteredPostcode = \Mockery::mock(EnumOutputField::class)
+            ->shouldReceive('getId')
+            ->andReturn(EnumOutputField::OUTPUT_REGISTERED_POSTCODE)
+            ->mock();
+
+        $modelWhereString = ModelWhereAbstract::create($mockEnumRegisteredPostcode);
 
         $this->assertInstanceOf(ModelWhereString::class, $modelWhereString);
     }
