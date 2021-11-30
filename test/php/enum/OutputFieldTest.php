@@ -13,7 +13,8 @@ class OutputFieldTest extends \TestCase
                 EnumOutputField::OUTPUT_EMPLOYEE_RANGE,
                 EnumOutputfield::OUTPUT_LOCATION,
                 EnumOutputField::OUTPUT_TRADING_POSTCODE,
-                EnumOutputField::OUTPUT_REGISTERED_POSTCODE
+                EnumOutputField::OUTPUT_REGISTERED_POSTCODE,
+                EnumOutputField::OUTPUT_MASTER_SECTORS
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -40,6 +41,10 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'regofficepostcode',
             EnumOutputField::OUTPUT_REGISTERED_POSTCODE
+        );
+        $this->assertEquals(
+            'mastersectors',
+            EnumOutputField::OUTPUT_MASTER_SECTORS
         );
     }
 }

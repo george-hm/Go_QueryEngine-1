@@ -5,7 +5,7 @@ namespace GoQueryEngine\Model\Where;
 use GoQueryEngine\Enum\EnumOutputField;
 use GoQueryEngine\Enum\EnumEmployeeRange;
 
-class WhereEmployeeRangeTest extends \TestCase
+class WhereInTest extends \TestCase
 {
     function testMapping()
     {
@@ -110,6 +110,51 @@ class WhereEmployeeRangeTest extends \TestCase
         );
 
         $modelWhereEmployeeRange->notIn([
+            'invalid'
+        ]);
+    }
+
+    function testWhereInMasterSectors()
+    {
+        $mockEnumOutputMasterSectors = \Mockery::mock(EnumOutputField::class)
+            ->shouldReceive('getId')
+            ->andReturn(EnumOutputField::OUTPUT_MASTER_SECTORS)
+            ->mock();
+
+        $modelWhereMasterSectors = ModelWhereAbstract::create(
+            $mockEnumOutputMasterSectors
+        );
+
+        $strMockMasterSectors = 'mastersector';
+        $mockEnumMasterSectors = \Mockery::mock(EnumMasterSectors::class)
+            ->shouldReceive('getId')
+            ->andReturn('mastersector')
+            ->mock();
+        $modelWhereMasterSectors->in([
+            $mockEnumMasterSectors
+        ]);
+
+        $this->assertEquals(
+            $strMockMasterSectors,
+            $modelWhereMasterSectors->toArray()['in'][0]
+        );
+    }
+
+    function testWhereInMasterSectorsInvalid()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Invalid value type');
+
+        $mockEnumOutputMasterSectors = \Mockery::mock(EnumOutputField::class)
+            ->shouldReceive('getId')
+            ->andReturn(EnumOutputField::OUTPUT_MASTER_SECTORS)
+            ->mock();
+
+        $modelWhereMasterSectors = ModelWhereAbstract::create(
+            $mockEnumOutputMasterSectors
+        );
+
+        $modelWhereMasterSectors->in([
             'invalid'
         ]);
     }
