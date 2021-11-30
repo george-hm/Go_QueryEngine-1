@@ -2,21 +2,32 @@
 
 namespace GoQueryEngine\Model\Where;
 
-use GoQueryEngine\Enum\EnumEmployeeRange;
-use Exception;
 use GoQueryEngine\Enum\EnumOperators;
+use GoQueryEngine\Enum\EnumAbstract;
+use GoQueryEngine\Enum\EnumOutputField;
+use Exception;
 
-class ModelWhereEmployeeRange extends ModelWhereAbstract
+class ModelWhereIn extends ModelWhereAbstract
 {
+
+    public function __construct(
+        EnumOutputField $enumOutputField,
+        string $strEnumValidator
+    )
+    {
+        parent::__construct($enumOutputField);
+        $this->_strEnumValidator = $strEnumValidator;
+    }
+
     public function in(array $arrValues)
     {
-        foreach ($arrValues as $enumEmployeeRange) {
-            if (!($enumEmployeeRange instanceof EnumEmployeeRange)) {
+        foreach ($arrValues as $enumValue) {
+            if (get_class($enumValue) !== $this->_strEnumValidator) {
                 throw new Exception('Invalid value type');
             }
 
             $this->_arrWhere[EnumOperators::VALUE_IN][] =
-                $enumEmployeeRange->getId();
+                $enumValue->getId();
         }
 
         return $this;
@@ -24,13 +35,13 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
 
     public function notIn(array $arrValues)
     {
-        foreach ($arrValues as $enumEmployeeRange) {
-            if (!($enumEmployeeRange instanceof EnumEmployeeRange)) {
+        foreach ($arrValues as $enumValue) {
+            if (get_class($enumValue) !== $this->_strEnumValidator) {
                 throw new Exception('Invalid value type');
             }
 
             $this->_arrWhere[EnumOperators::VALUE_NOT_IN][] =
-                $enumEmployeeRange->getId();
+                $enumValue->getId();
         }
 
         return $this;
@@ -43,7 +54,7 @@ class ModelWhereEmployeeRange extends ModelWhereAbstract
             !isset($this->_arrWhere[EnumOperators::VALUE_NOT_IN])
         ) {
             throw new Exception(
-                "EmployeeRange must have at least 'in' or 'notIn' called"
+                "Must have at least 'in' or 'notIn' called"
             );
         }
 

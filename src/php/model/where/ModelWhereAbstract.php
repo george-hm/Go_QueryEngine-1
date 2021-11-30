@@ -22,7 +22,10 @@ class ModelWhereAbstract
             case EnumOutputField::OUTPUT_REGISTERED_POSTCODE:
                 return new ModelWhereString($enumOutputField);
             case EnumOutputField::OUTPUT_EMPLOYEE_RANGE:
-                return new ModelWhereEmployeeRange($enumOutputField);
+                return new ModelWhereIn(
+                    $enumOutputField,
+                    EnumEmployeeRange::class
+                );
             case EnumOutputField::OUTPUT_LOCATION:
                 return new ModelWhereLocation($enumOutputField);
             default:
