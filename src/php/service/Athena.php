@@ -128,6 +128,13 @@ class ServiceAthena
             $arrBody['column'] = $this->_modelOutputAbstract->getColumn();
         }
 
+        if (
+            $this->_modelOutputAbstract->getType() ===
+                EnumOutputType::OUTPUT_LIST
+        ) {
+            $arrBody['out_fields'][] = $this->_modelOutputAbstract->getColumn();
+        }
+
         $guzzleConnection->request(
             'POST',
             self::c_strURL_Athena,
