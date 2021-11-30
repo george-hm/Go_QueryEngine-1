@@ -49,6 +49,11 @@ abstract class ModelOutputAbstract
                     $enumOutputType,
                     $arrOptions
                 );
+            case EnumOutputType::OUTPUT_LIST:
+                return new ModelOutputList(
+                    $enumOutputType,
+                    $arrOptions
+                );
             default:
                 throw new Exception('Invalid output type');
         }
