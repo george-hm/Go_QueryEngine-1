@@ -22,7 +22,10 @@ class ModelWhereIn extends ModelWhereAbstract
     public function in(array $arrValues)
     {
         foreach ($arrValues as $enumValue) {
-            if (get_class($enumValue) !== $this->_strEnumValidator) {
+            if (
+                is_string($enumValue) ||
+                get_class($enumValue) !== $this->_strEnumValidator
+            ) {
                 throw new Exception('Invalid value type');
             }
 
@@ -36,7 +39,10 @@ class ModelWhereIn extends ModelWhereAbstract
     public function notIn(array $arrValues)
     {
         foreach ($arrValues as $enumValue) {
-            if (get_class($enumValue) !== $this->_strEnumValidator) {
+            if (
+                is_string($enumValue) ||
+                get_class($enumValue) !== $this->_strEnumValidator
+            ) {
                 throw new Exception('Invalid value type');
             }
 
