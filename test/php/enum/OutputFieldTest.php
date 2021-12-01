@@ -15,7 +15,8 @@ class OutputFieldTest extends \TestCase
                 EnumOutputField::OUTPUT_TRADING_POSTCODE,
                 EnumOutputField::OUTPUT_REGISTERED_POSTCODE,
                 EnumOutputField::OUTPUT_MASTER_SECTORS,
-                EnumOutputField::OUTPUT_JOB_ROLES
+                EnumOutputField::OUTPUT_JOB_ROLES,
+                EnumOutputField::OUTPUT_SICCODES
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -50,6 +51,10 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'normaljobroles',
             EnumOutputField::OUTPUT_JOB_ROLES
+        );
+        $this->assertEquals(
+            'siccodes',
+            EnumOutputField::OUTPUT_SICCODES
         );
     }
 }
