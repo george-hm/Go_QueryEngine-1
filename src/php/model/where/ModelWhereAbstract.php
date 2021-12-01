@@ -25,16 +25,12 @@ class ModelWhereAbstract
             case EnumOutputField::OUTPUT_JOB_ROLES:
             case EnumOutputField::OUTPUT_SICCODES:
             case EnumOutputField::OUTPUT_CITY:
+            case EnumOutputField::OUTPUT_MASTER_SECTORS:
                 return new ModelWhereString($enumOutputField);
             case EnumOutputField::OUTPUT_EMPLOYEE_RANGE:
                 return new ModelWhereIn(
                     $enumOutputField,
                     EnumEmployeeRange::class
-                );
-            case EnumOutputField::OUTPUT_MASTER_SECTORS:
-                return new ModelWhereIn(
-                    $enumOutputField,
-                    EnumMasterSector::class
                 );
             case EnumOutputField::OUTPUT_LOCATION:
                 return new ModelWhereLocation($enumOutputField);
