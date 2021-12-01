@@ -19,7 +19,7 @@ class WhereInTest extends \TestCase
         );
 
         $this->assertInstanceOf(
-            ModelWhereEmployeeRange::class,
+            ModelWhereIn::class,
             $modelWhereEmployeeRange
         );
     }
@@ -31,8 +31,9 @@ class WhereInTest extends \TestCase
             ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
-        $modelWhereEmployeeRange = ModelWhereAbstract::create(
-            $mockEnumOutputEmployeeRange
+        $modelWhereEmployeeRange = new ModelWhereIn(
+            $mockEnumOutputEmployeeRange,
+            'Mockery_2_GoQueryEngine_Enum_EnumEmployeeRange'
         );
 
         $strMockRange = '2-10';
@@ -60,8 +61,9 @@ class WhereInTest extends \TestCase
             ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
-        $modelWhereEmployeeRange = ModelWhereAbstract::create(
-            $mockEnumOutputEmployeeRange
+        $modelWhereEmployeeRange = new ModelWhereIn(
+            $mockEnumOutputEmployeeRange,
+            'Mockery_2_GoQueryEngine_Enum_EnumEmployeeRange'
         );
 
         $modelWhereEmployeeRange->in([
@@ -76,8 +78,9 @@ class WhereInTest extends \TestCase
             ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
-        $modelWhereEmployeeRange = ModelWhereAbstract::create(
-            $mockEnumOutputEmployeeRange
+        $modelWhereEmployeeRange = new ModelWhereIn(
+            $mockEnumOutputEmployeeRange,
+            'Mockery_2_GoQueryEngine_Enum_EnumEmployeeRange'
         );
 
         $strMockRange = '2-10';
@@ -105,56 +108,12 @@ class WhereInTest extends \TestCase
             ->andReturn(EnumOutputField::OUTPUT_EMPLOYEE_RANGE)
             ->mock();
 
-        $modelWhereEmployeeRange = ModelWhereAbstract::create(
-            $mockEnumOutputEmployeeRange
+        $modelWhereEmployeeRange = new ModelWhereIn(
+            $mockEnumOutputEmployeeRange,
+            'Mockery_2_GoQueryEngine_Enum_EnumEmployeeRange'
         );
 
         $modelWhereEmployeeRange->notIn([
-            'invalid'
-        ]);
-    }
-
-    function testWhereInMasterSectors()
-    {
-        $mockEnumOutputMasterSectors = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getId')
-            ->andReturn(EnumOutputField::OUTPUT_MASTER_SECTORS)
-            ->mock();
-
-        $modelWhereMasterSectors = ModelWhereAbstract::create(
-            $mockEnumOutputMasterSectors
-        );
-
-        $strMockMasterSectors = 'mastersector';
-        $mockEnumMasterSectors = \Mockery::mock(EnumMasterSectors::class)
-            ->shouldReceive('getId')
-            ->andReturn('mastersector')
-            ->mock();
-        $modelWhereMasterSectors->in([
-            $mockEnumMasterSectors
-        ]);
-
-        $this->assertEquals(
-            $strMockMasterSectors,
-            $modelWhereMasterSectors->toArray()['in'][0]
-        );
-    }
-
-    function testWhereInMasterSectorsInvalid()
-    {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Invalid value type');
-
-        $mockEnumOutputMasterSectors = \Mockery::mock(EnumOutputField::class)
-            ->shouldReceive('getId')
-            ->andReturn(EnumOutputField::OUTPUT_MASTER_SECTORS)
-            ->mock();
-
-        $modelWhereMasterSectors = ModelWhereAbstract::create(
-            $mockEnumOutputMasterSectors
-        );
-
-        $modelWhereMasterSectors->in([
             'invalid'
         ]);
     }
