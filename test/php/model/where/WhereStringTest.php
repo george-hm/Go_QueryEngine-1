@@ -53,6 +53,15 @@ class WhereStringTest extends \TestCase
         $modelWhereString = ModelWhereAbstract::create($mockEnumSiccodes);
 
         $this->assertInstanceOf(ModelWhereString::class, $modelWhereString);
+
+        $mockEnumCity = \Mockery::mock(EnumOutputField::class)
+            ->shouldReceive('getId')
+            ->andReturn(EnumOutputField::OUTPUT_CITY)
+            ->mock();
+
+        $modelWhereString = ModelWhereAbstract::create($mockEnumCity);
+
+        $this->assertInstanceOf(ModelWhereString::class, $modelWhereString);
     }
 
     function testIn()

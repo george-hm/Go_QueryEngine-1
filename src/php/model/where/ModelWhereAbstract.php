@@ -24,6 +24,7 @@ class ModelWhereAbstract
             case EnumOutputField::OUTPUT_REGISTERED_POSTCODE:
             case EnumOutputField::OUTPUT_JOB_ROLES:
             case EnumOutputField::OUTPUT_SICCODES:
+            case EnumOutputField::OUTPUT_CITY:
                 return new ModelWhereString($enumOutputField);
             case EnumOutputField::OUTPUT_EMPLOYEE_RANGE:
                 return new ModelWhereIn(

@@ -16,7 +16,8 @@ class OutputFieldTest extends \TestCase
                 EnumOutputField::OUTPUT_REGISTERED_POSTCODE,
                 EnumOutputField::OUTPUT_MASTER_SECTORS,
                 EnumOutputField::OUTPUT_JOB_ROLES,
-                EnumOutputField::OUTPUT_SICCODES
+                EnumOutputField::OUTPUT_SICCODES,
+                EnumOutputField::OUTPUT_CITY
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -55,6 +56,10 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'siccodes',
             EnumOutputField::OUTPUT_SICCODES
+        );
+        $this->assertEquals(
+            'city',
+            EnumOutputField::OUTPUT_CITY
         );
     }
 }
