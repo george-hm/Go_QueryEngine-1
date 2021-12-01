@@ -23,6 +23,19 @@ class ModelWhereString extends ModelWhereAbstract
         return $this;
     }
 
+    public function notIn(array $arrValues)
+    {
+        foreach ($arrValues as $mixCurrentValue) {
+            if (!is_string($mixCurrentValue)) {
+                throw new Exception('Invalid for \'not in\' operator');
+            }
+
+            $this->_arrWhere['not_in'] = $arrValues;
+        }
+
+        return $this;
+    }
+
     public function like(string $strValue)
     {
         $this->_arrWhere['like'] = $strValue;
