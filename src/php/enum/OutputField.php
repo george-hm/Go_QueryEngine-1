@@ -10,6 +10,7 @@ class EnumOutputField extends EnumAbstract
     const OUTPUT_TRADING_POSTCODE = 'tradingpostcode';
     const OUTPUT_REGISTERED_POSTCODE = 'regofficepostcode';
     const OUTPUT_MASTER_SECTORS = 'mastersectors';
+    const OUTPUT_JOB_ROLES = 'normaljobroles';
 
     const VALUES = [
         self::OUTPUT_HOSTNAME,
@@ -17,6 +18,7 @@ class EnumOutputField extends EnumAbstract
         self::OUTPUT_LOCATION,
         self::OUTPUT_TRADING_POSTCODE,
         self::OUTPUT_REGISTERED_POSTCODE,
-        self::OUTPUT_MASTER_SECTORS
+        self::OUTPUT_MASTER_SECTORS,
+        self::OUTPUT_JOB_ROLES
     ];
 }
