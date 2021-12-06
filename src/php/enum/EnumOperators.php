@@ -13,7 +13,8 @@ class EnumOperators extends EnumAbstract
     const VALUE_WITHIN_RADIUS = 'radius';
     const VALUE_WITHIN_LAT = 'lat';
     const VALUE_WITHIN_LNG = 'lng';
-
+    const VALUE_GTE = 'gte';
+    const VALUE_LTE = 'lte';
 
     const VALUES = [
         self::VALUE_EQUALS,
@@ -24,6 +25,8 @@ class EnumOperators extends EnumAbstract
         self::VALUE_WITHIN,
         self::VALUE_WITHIN_RADIUS,
         self::VALUE_WITHIN_LAT,
-        self::VALUE_WITHIN_LNG
+        self::VALUE_WITHIN_LNG,
+        self::VALUE_GTE,
+        self::VALUE_LTE
     ];
 }
