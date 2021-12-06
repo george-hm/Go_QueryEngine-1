@@ -14,6 +14,7 @@ class EnumOutputField extends EnumAbstract
     const OUTPUT_SICCODES = 'siccodes';
     const OUTPUT_TRADING_CITY = 'tradingcity';
     const OUTPUT_REGISTERED_CITY = 'regofficecity';
+    const OUTPUT_INCORPORATION_DATE = 'incorporationdate';
 
     const VALUES = [
         self::OUTPUT_HOSTNAME,
@@ -25,6 +26,7 @@ class EnumOutputField extends EnumAbstract
         self::OUTPUT_JOB_ROLES,
         self::OUTPUT_SICCODES,
         self::OUTPUT_TRADING_CITY,
-        self::OUTPUT_REGISTERED_CITY
+        self::OUTPUT_REGISTERED_CITY,
+        self::OUTPUT_INCORPORATION_DATE
     ];
 }

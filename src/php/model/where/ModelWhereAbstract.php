@@ -4,7 +4,6 @@ namespace GoQueryEngine\Model\Where;
 
 use GoQueryEngine\Enum\EnumOutputField;
 use GoQueryEngine\Enum\EnumEmployeeRange;
-use GoQueryEngine\Enum\EnumMasterSector;
 use Exception;
 
 class ModelWhereAbstract
@@ -35,6 +34,8 @@ class ModelWhereAbstract
                 );
             case EnumOutputField::OUTPUT_LOCATION:
                 return new ModelWhereLocation($enumOutputField);
+            case EnumOutputField::OUTPUT_INCORPORATION_DATE:
+                return new ModelWhereNum($enumOutputField);
             default:
                 throw new Exception('Invalid output type');
         }
