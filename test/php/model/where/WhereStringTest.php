@@ -56,7 +56,7 @@ class WhereStringTest extends \TestCase
 
         $mockEnumCity = \Mockery::mock(EnumOutputField::class)
             ->shouldReceive('getId')
-            ->andReturn(EnumOutputField::OUTPUT_CITY)
+            ->andReturn(EnumOutputField::OUTPUT_TRADING_CITY)
             ->mock();
 
         $modelWhereString = ModelWhereAbstract::create($mockEnumCity);
