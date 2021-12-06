@@ -18,7 +18,8 @@ class OutputFieldTest extends \TestCase
                 EnumOutputField::OUTPUT_JOB_ROLES,
                 EnumOutputField::OUTPUT_SICCODES,
                 EnumOutputField::OUTPUT_TRADING_CITY,
-                EnumOutputField::OUTPUT_REGISTERED_CITY
+                EnumOutputField::OUTPUT_REGISTERED_CITY,
+                EnumOutputField::OUTPUT_INCORPORATION_DATE
             ],
             EnumOutputField::getAllowedValues()
         );
@@ -65,6 +66,10 @@ class OutputFieldTest extends \TestCase
         $this->assertEquals(
             'regofficecity',
             EnumOutputField::OUTPUT_REGISTERED_CITY
+        );
+        $this->assertEquals(
+            'incorporationdate',
+            EnumOutputField::OUTPUT_INCORPORATION_DATE
         );
     }
 }
