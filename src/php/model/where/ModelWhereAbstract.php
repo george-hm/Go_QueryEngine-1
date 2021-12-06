@@ -42,6 +42,14 @@ class ModelWhereAbstract
 
     public function toArray()
     {
+        if (count($this->_arrWhere) <= 1) {
+            throw new Exception(
+                'ModelWhere ' .
+                get_class($this) .
+                ' is empty, call one of the add methods'
+            );
+        }
+
         return $this->_arrWhere;
     }
 }
